@@ -15,10 +15,10 @@ ip=$(ip -o -f inet addr show $1 | awk '{print $4}' | awk -F"/" '{print $1}')
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 cd $DIR
 docker build -t "coach/boot" .
-docker kill coach_boot
-docker rm coach_boot
+docker kill coach_boot_$1
+docker rm coach_boot_$1
 docker run -d \
-        --name coach_boot \
+        --name coach_boot_$1 \
 	--net=host \
         coach/boot \
 	--interface=$1 \
