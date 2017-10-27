@@ -18,6 +18,8 @@ The Docker build process will run each time start.sh is called. So, if you choos
 
 ROM-o-matic.eu is used to build the iPXE binary BIOS, x86 EFI, and x64 EFI files. All of the files have the exact same feature to make sure there is consistancy among all devices that boot from this Docker container.
 
+Keep in mind, the start.sh script will kill and remove any verions of itself running on the same interface to prevent errors.
+
 ## iPXE Features
 * DNS
 * FTP
